@@ -153,6 +153,7 @@
     <!-- tabla listar boletas -->
 
     <div v-if="mostrarListadoBoletas" class="listaBoletas">
+      <button type="button" class="buttonCerrarComprador" @click="cerrarTabla()">❌</button>
       <h2>Listado de Boletas</h2>
       <table id="element-to-pdf" style="width: 10.5in; text-align: center;">
         <thead>
@@ -493,6 +494,9 @@ function cerrarLoteria() {
 
 function listarBoletas() {
   mostrarListadoBoletas.value = true;
+}
+  function cerrarTabla(){
+  mostrarListadoBoletas.value = false;
 }
 
 // Función para contar boletas pagadas
