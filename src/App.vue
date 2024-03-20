@@ -237,7 +237,7 @@ let error = ref("")
 let arrayRifa = ref([])
 
 //variables comprador
-
+let nombre = ref("")
 let direccion = ref("")
 let telefono = ref("")
 let estado = ref("")
