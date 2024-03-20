@@ -331,7 +331,7 @@ function validarInformacionInicial() {
         error.value = ""
       }, 3000)
     }
-    else if (fechaActual > fechaSeleccionada) {
+    else if (fechaActual.setHours(0,0,0,0) > fechaSeleccionada) {
       error.value = 'fecha incorrecta'
       setTimeout(() => {
         error.value = ""
