@@ -1,15 +1,14 @@
 <template>
-  <div >
-    <header :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">
+  <div class="mainContainer" :class="currentTheme">
+    <header>
       <h1>TALONARIO</h1>
-    </header >
+    </header>
     <h3 id="alerta" v-if="error != ''">{{ error }}</h3>
     <div>
       <!-- div datos iniciales __________________-->
       <div id="datosIniciales" v-show="mostrarInformacionInicial">
-
-        <h2  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 
-                       'temaNaranja': temaSeleccionado === 'naranja' }">CONFIGURA TU TALONARIO</h2>
+        <button class="buttonCerrarComprador" @click="cerrarInformacionIncial()">❌</button>
+        <h2 class="mainText">CONFIGURA TU TALONARIO</h2>
         <input type="text" v-model="premio" placeholder="premio"> <br>
         <input type="text" v-model="valorBoleta" placeholder="valor Boleta"><br>
         <select class="loteria" id="loteria" v-model="loteria">
@@ -31,21 +30,21 @@
         <input type="date" v-model="fechaSorteo" placeholder="Fecha sorteo"> <br>
 
         <br>
-        <button class="buttonGeneral"  @click="validarInformacionInicial()"  :class="{ 'temaAzul': temaSeleccionado === 'azul',
-          'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Guardar </button>
+        <button class="buttonGeneral" @click="validarInformacionInicial()">Guardar </button>
       </div>
 
       <!-- numero de loteria -->
       <div v-if="mostrarNumeroLoteriaBool" class="numeroLoteria">
         <button type="button" class="buttonCerrarComprador" @click="cerrarLoteria()">❌</button>
-        <p  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Loteria: {{ loteria }}</p>
+        <p class="mainText">
+          Loteria: {{ loteria }}</p>
         <input type="number" v-model="numeroLoteria" placeholder="Número de 4 cifras"> <br>
-        <button @click="guardarYBuscar()" class="buttonGeneral"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Guardar</button>
+        <button @click="guardarYBuscar()" class="buttonGeneral">Guardar</button>
       </div>
 
       <!-- Editar comprador -->
       <div class="datosBoleta" v-show="mostrarDatosBoleta">
-        <button  class="buttonCerrarComprador" @click="cerrarDatosComprador()">❌</button>
+        <button class="buttonCerrarComprador" @click="cerrarDatosComprador()">❌</button>
         <div class="datosBoletaP">
           <p>Numero: {{ compradorSeleccionado.id }} </p>
           <p>Nombre: {{ compradorSeleccionado.nombre }} </p>
@@ -55,7 +54,7 @@
         </div>
         <button class="buttonGeneral" v-if="compradorSeleccionado.estado !== 'disponible'"
           @click="liberarBoleta()">Liberar</button>
-        <button class="buttonGeneral" @click="EditarComprador()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Editar</button>
+        <button class="buttonGeneral" @click="EditarComprador()">Editar</button>
       </div>
 
       <!-- formulario comprador -->
@@ -63,9 +62,9 @@
         <div class="datosComprador" v-show="mostrarInformacionComprador">
 
 
-          <h2  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Datos Comprador</h2>
-          <button  class="buttonCerrarComprador" @click="cerrarFormularioComprador()">❌</button>
-          <p>Boleta: {{ compradorSeleccionado.id }}</p>
+          <h2 class="mainText"> Datos Comprador </h2>
+          <button class="buttonCerrarComprador" @click="cerrarFormularioComprador()">❌</button>
+          <p class="mainText">Boleta: {{ compradorSeleccionado.id }}</p>
           <div class="datos">
             <label for="nombre">Nombre:</label><br>
             <input type="text" v-model="nombre" id="nombre">
@@ -84,19 +83,19 @@
             <input type="radio" id="disponible" name="estado" v-model="estado" checked value="disponible">
             <label for="disponible">Disponible</label><br>
 
-            <button  class="buttonGeneral" @click="validarComprador()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Guardar</button>
+            <button class="buttonGeneral" @click="validarComprador()">Guardar</button>
           </div>
         </div>
       </div>
     </div>
- <!-- temas  -->
-<div v-show="seleccionarTema" class="seleccionarTema">
-  <button  class="buttonCerrarComprador" @click="cerrarSelecionarTema()">❌</button>
-  <h2>Seleccionar Tema</h2>
-  <button @click="temaAzul()" class="buttonAzul">Azul</button>
-  <button @click="temaVerde()" class="buttonVerde">verde</button>
-  <button @click="temaNaranja()" class="buttonNaranja">Naranja</button>
-</div>
+    <!-- temas  -->
+    <div v-show="seleccionarTema" class="seleccionarTema">
+      <button class="buttonCerrarComprador" @click="cerrarSelecionarTema()">❌</button>
+      <h2 class="mainText">Seleccionar Tema</h2>
+      <button @click="changeTheme('themeOne')" class="buttonVioleta">Violeta</button>
+      <button @click="changeTheme('themeTwo')" class="buttonVerde">verde</button>
+      <button @click="changeTheme('themeThree')" class="buttonNaranja">Naranja</button>
+    </div>
 
 
     <div class=" principal">
@@ -105,61 +104,26 @@
 
       <!-- boletas -->
       <div class="principalBoleteria">
-        <h2  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Boleteria</h2>
+        <h2 class="mainText"> Boleteria</h2>
         <div class="boleteria">
-          <div v-for="(comprador, index) in arrayRifa" :key="index" class="boleta" v-show="mostrarBoletas"
-           :class="{'estado-pagada': comprador.estado === 'pagada', 'estado-porPagar': comprador.estado === 'porPagar',
-      'estado-disponible': comprador.estado === 'disponible', 'estado-ganador': comprador.estado === 'ganador'
-    }" @click="mostrarDatosComprador(comprador, index)">
+          <div v-for="(comprador, index) in arrayRifa" :key="index" class="boleta" v-show="mostrarBoletas" :class="{
+                                  'estado-pagada': comprador.estado === 'pagada', 'estado-porPagar': comprador.estado === 'porPagar',
+                                   'estado-disponible': comprador.estado === 'disponible', 'estado-ganador': comprador.estado === 'ganador'
+                                   }" @click="mostrarDatosComprador(comprador, index)">
             <p>{{ comprador.id }}</p>
 
           </div>
         </div>
-      </div>
-
-
-      <div class="principal2">
-        <!-- acciones -->
-
-        <div class="acciones">
-
-          <h2>ACCIONES</h2>
-          <div class="acciones2">
-
-            <button class="buttonAcciones" @click="listarBoletas()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">LISTAR BOLETAS</button> <br>
-            <button  class="buttonAcciones" @click="seleccionTema()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">PERSONALIZAR TALONARIO</button> <br>          
-            <button class="buttonAcciones"  @click="exportarTablaPDF()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }" >GENERAR ARCHIVO DE DATOS</button><br>
-            <button class="buttonAcciones"  @click="mostrarNumeroLoteria()"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">NUMERO DE LOTERIA</button> 
-
-
-          </div>
-        </div>
-        <!-- informacion -->
-        <div class="informacion">
-
-          <h2>INFORMACIÓN</h2>
-          <div class="informacion2">
-            <P>🏆{{ premio }}</P>
-            <P>💰{{ valorBoleta }}</P>
-            <P>🎰{{ loteria }}</P>
-            <P>🗓️{{ fechaSorteo }}</P>
-            <button class="buttonGeneral"  @click="editarInformacionInicial(item, i)"  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">Editar✒️</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- tabla listar boletas -->
+        <!-- tabla listar boletas -->
 
     <div v-if="mostrarListadoBoletas" class="listaBoletas">
       <button type="button" class="buttonCerrarComprador" @click="cerrarTabla()">❌</button>
       <h2>Listado de Boletas</h2>
-      <table id="element-to-pdf" style="width: 10.5in; text-align: center;">
+      <table id="element-to-pdf" style="width: 10.5in; text-align: center;" class="mainTable">
         <thead>
-          <tr>
-            <th>Número </th>
-            <th>Comprador</th>
+          <tr class="tableHeader">
+            <th >Número </th>
+            <th >Comprador</th>
             <th>Dirección</th>
             <th>Teléfono</th>
             <th>Pagada</th>
@@ -173,12 +137,12 @@
             <td>{{ comprador.nombre }}</td>
             <td>{{ comprador.direccion }}</td>
             <td>{{ comprador.telefono }}</td>
-            <td v-if="comprador.estado === 'pagada'">Sí</td>
-            <td v-else>No</td>
-            <td v-if="comprador.estado === 'porPagar'">Sí</td>
-            <td v-else>No</td>
-            <td v-if="comprador.estado === 'ganador'">Sí</td>
-            <td v-else>No</td>
+            <td v-if="comprador.estado === 'pagada'">X</td>
+            <td v-else></td>
+            <td v-if="comprador.estado === 'porPagar'">X</td>
+            <td v-else></td>
+            <td v-if="comprador.estado === 'ganador'">X</td>
+            <td v-else></td>
           </tr>
         </tbody>
         <tfoot>
@@ -191,21 +155,49 @@
           </tr>
           <tr>
             <td colspan="4">Total Dinero</td>
-            <td>{{ totalPagadas }}</td>
-            <td>{{ totalPorPagar }}</td>
+            <td>{{ UnidadesMil(totalPagadas) }}</td>
+            <td>{{ UnidadesMil(totalPorPagar) }}</td>
             <td>{{ }}</td>
           </tr>
         </tfoot>
       </table>
     </div>
+      </div>
 
 
+      <div class="principal2">
+        <!-- acciones -->
 
-  
+        <div class="acciones">
+
+          <h2 class="mainText">ACCIONES</h2>
+          <div class="acciones2">
+
+            <button class="buttonAcciones" @click="listarBoletas()">LISTAR
+              BOLETAS</button> <br>
+            <button class="buttonAcciones" @click="seleccionTema()">PERSONALIZAR TALONARIO</button> <br>
+            <button class="buttonAcciones" @click="exportarTablaPDF()">GENERAR ARCHIVO DE DATOS</button><br>
+            <button class="buttonAcciones" @click="mostrarNumeroLoteria()">NUMERO DE LOTERIA</button>
 
 
+          </div>
+        </div>
+        <!-- informacion -->
+        <div class="informacion">
 
-    <footer  :class="{ 'temaAzul': temaSeleccionado === 'azul', 'temaVerde': temaSeleccionado === 'verde', 'temaNaranja': temaSeleccionado === 'naranja' }">
+          <h2 class="mainText">INFORMACIÓN</h2>
+          <div class="informacion2">
+            <P>🏆{{ UnidadesMil(premio1) }}</P>
+            <P>💰{{ UnidadesMil(valorBoleta1) }}</P>
+            <P>🎰{{ InformacionInicial.loteria }}</P>
+            <P>🗓️{{ InformacionInicial.fechaSorteo }}</P>
+            <button class="buttonGeneral" @click="editarInformacionInicial(item, i)">Editar✒️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <footer>
       <p>&copy; 2023. Todos los derechos reservados.</p>
     </footer>
 
@@ -222,12 +214,13 @@ import { ref, computed } from "vue";
 
 //variables formulario inicial
 let premio = ref("")
+let premio1 = ref("")
 let valorBoleta = ref("")
+let valorBoleta1 = ref("")
 let loteria = ref("")
 let cantidadBoletas = ref("100")
 let fechaSorteo = ref("")
 let index = null
-let editarInfoInicial = true
 let mostrarInformacionInicial = ref(true)
 let InformacionInicial = ref({})
 let bd = true
@@ -253,7 +246,8 @@ let mostrarListadoBoletas = ref(false);
 let numeroLoteria = ref("");
 let mostrarNumeroLoteriaBool = ref(false);
 
-let seleccionarTema= ref(false)
+let seleccionarTema = ref(false)
+let currentTheme = ref("defaultTheme");
 
 
 
@@ -264,11 +258,13 @@ let seleccionarTema= ref(false)
 // Informacion Incial
 function guardarInformacionInicial() {
   InformacionInicial = {
-    premio: premio.value,
+    premio: (premio.value),
     valorBoleta: valorBoleta.value,
     loteria: loteria.value,
     fechaSorteo: fechaSorteo.value
   }
+  premio1.value = InformacionInicial.premio
+  valorBoleta1.value = InformacionInicial.valorBoleta
 
   mostrarInformacionInicial.value = false;
   mostrarBoletas.value = true;
@@ -291,6 +287,12 @@ function editarInformacionInicial(item, i) {
   }
 }
 
+
+/* unidades de 1000 */
+
+function UnidadesMil(numero) {
+  return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
 function validarInformacionInicial() {
   if (bd) {
     const fechaActual = new Date();
@@ -331,7 +333,7 @@ function validarInformacionInicial() {
         error.value = ""
       }, 3000)
     }
-    else if (fechaActual.setHours(0,0,0,0) > fechaSeleccionada) {
+    else if (fechaActual.setHours(0, 0, 0, 0) > fechaSeleccionada) {
       error.value = 'fecha incorrecta'
       setTimeout(() => {
         error.value = ""
@@ -489,13 +491,16 @@ function cerrarDatosComprador() {
 function cerrarLoteria() {
   mostrarNumeroLoteriaBool.value = false
 }
+function cerrarInformacionIncial() {
+  mostrarInformacionInicial.value = false
+}
 
 // listar boletas 
 
 function listarBoletas() {
   mostrarListadoBoletas.value = true;
 }
-  function cerrarTabla(){
+function cerrarTabla() {
   mostrarListadoBoletas.value = false;
 }
 
@@ -582,18 +587,20 @@ function buscarComprador() {
 
 
     } else if (compradorGanador.estado === 'porPagar') {
+      totalPorPagar.value + valorBoleta.value
       error.value = "Numero fue vendido pero boleta no fue cancelada por lo tanto no se entrega el premio"
       setTimeout(() => {
 
         error.value = ""
       }, 3000)
       console.log(error.value);
+
       compradorGanador.estado = 'ganador';
 
       compradorSeleccionado.value = compradorGanador;
       mostrarDatosBoleta.value = true;
       mostrarNumeroLoteriaBool.value = false
-      totalPorPagar.value = totalPorPagar + totalGanadora
+
     }
     else {
 
@@ -605,27 +612,21 @@ function buscarComprador() {
       totalPagadas.value = totalPagadas.value + totalGanadora.value
     }
   }
+
 }
 
 /* personalizar Temas*/
+function seleccionTema() {
+  seleccionarTema.value = true
+}
+function cerrarSelecionarTema() {
+  seleccionarTema.value = false
+}
 
-function seleccionTema(){
-  seleccionarTema.value=true
+function changeTheme(theme) {
+  currentTheme.value = theme;
 }
- function cerrarSelecionarTema(){
-  seleccionarTema.value=false
- } 
- let temaSeleccionado= ref("azul")
 
-function temaVerde(){
-  temaSeleccionado.value="verde"
-}
-function temaAzul(){
-  temaSeleccionado.value="azul"
-}
-function temaNaranja(){
-  temaSeleccionado.value="naranja"
-}
 /*pdf */
 
 function exportarTablaPDF() {
@@ -635,11 +636,13 @@ function exportarTablaPDF() {
     filename: 'Rifa.pdf',
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { scale: 3 },
-    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' },
+    overflow: 'auto'
   };
+ 
+
   html2pdf().from(element).set(opt).save();
 }
-
 
 
 </script>
