@@ -6,7 +6,7 @@
     <h3 id="alerta" v-if="error != ''">{{ error }}</h3>
     <div>
       <!-- div datos iniciales __________________-->
-      <div id="datosIniciales" v-show="mostrarInformacionInicial">
+      <div id="datosIniciales" v-show="mostrarInformacionInicial" class="generalClass">
         <button class="buttonCerrarComprador" @click="cerrarInformacionIncial()">❌</button>
         <h2 class="mainText">CONFIGURA TU TALONARIO</h2>
         <input type="text" v-model="premio" placeholder="premio"> <br>
@@ -34,7 +34,7 @@
       </div>
 
       <!-- numero de loteria -->
-      <div v-if="mostrarNumeroLoteriaBool" class="numeroLoteria">
+      <div v-if="mostrarNumeroLoteriaBool" id="numeroLoteria" class="generalClass">
         <button type="button" class="buttonCerrarComprador" @click="cerrarLoteria()">❌</button>
         <p class="mainText">
           Loteria: {{ loteria }}</p>
@@ -43,7 +43,7 @@
       </div>
 
       <!-- Editar comprador -->
-      <div class="datosBoleta" v-show="mostrarDatosBoleta">
+      <div id="datosBoleta" v-show="mostrarDatosBoleta" class="generalClass">
         <button class="buttonCerrarComprador" @click="cerrarDatosComprador()">❌</button>
         <div class="datosBoletaP">
           <p>Numero: {{ compradorSeleccionado.id }} </p>
@@ -58,7 +58,7 @@
       </div>
 
       <!-- formulario comprador -->
-      <div class="comprador">
+      <div id="comprador" class="generalClass">
         <div class="datosComprador" v-show="mostrarInformacionComprador">
 
 
@@ -89,9 +89,10 @@
       </div>
     </div>
     <!-- temas  -->
-    <div v-show="seleccionarTema" class="seleccionarTema">
+    <div v-show="seleccionarTema" id="seleccionarTema" class="generalClass">
       <button class="buttonCerrarComprador" @click="cerrarSelecionarTema()">❌</button>
       <h2 class="mainText">Seleccionar Tema</h2>
+      <button @click="changeTheme('defaultTheme')" class="buttonOriginal">Original</button>
       <button @click="changeTheme('themeOne')" class="buttonVioleta">Violeta</button>
       <button @click="changeTheme('themeTwo')" class="buttonVerde">verde</button>
       <button @click="changeTheme('themeThree')" class="buttonNaranja">Naranja</button>
@@ -103,7 +104,7 @@
 
 
       <!-- boletas -->
-      <div class="principalBoleteria">
+      <div id="principalBoleteria" >
         <h2 class="mainText"> Boleteria</h2>
         <div class="boleteria">
           <div v-for="(comprador, index) in arrayRifa" :key="index" class="boleta" v-show="mostrarBoletas" :class="{
