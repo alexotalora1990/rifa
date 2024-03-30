@@ -2,17 +2,16 @@
     padding: 0;
     margin: 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  
-  }
-  
-  
-  body {
+
+}
+
+body {
     position: relative;
     min-height: 100vh;
     padding-bottom: 5%;
-  }
-  
-  header {
+}
+
+header {
     width: 101%;
     height: auto;
     text-align: center;
@@ -20,18 +19,19 @@
     color: #ffffff;
     position: fixed;
     margin: -1%;
-  }
-  
-  header h1 {
+}
+
+header h1 {
     font-size: 300%;
     padding: 1%;
-  }
-  
-  /*Botones*/
-  .buttonGeneral,
-  .buttonVioleta,
-  .buttonVerde,
-  .buttonNaranja {
+}
+
+/*Botones*/
+.buttonGeneral,
+.buttonVioleta,
+.buttonVerde,
+.buttonNaranja,
+.buttonOriginal {
     font-size: 120%;
     padding: 3%;
     border: none;
@@ -39,46 +39,46 @@
     margin: 2%;
     background-color: #0467fc;
     color: #ffffff;
-  }
-  
-  .mainText {
+}
+
+.mainText {
     background-color: #0467fc;
     color: #ffffff;
     border-radius: 5px;
     margin: 1%;
     padding: 1%;
-  }
-  
-  .buttonVioleta {
+}
+
+.buttonVioleta {
     background-color: #a73aaf;
     color: #ffffff;
-  }
-  
-  .buttonVerde {
+}
+
+.buttonVerde {
     background-color: #12771b;
     color: #ffffff;
-  }
-  
-  .buttonNaranja {
+}
+
+.buttonNaranja {
     background-color: #eb8423;
     color: #000000;
-  }
-  
-  
-  
-  /* configuracion tu talonario*/
-  
-  #alerta {
+}
+
+
+
+/* configuracion tu talonario*/
+
+#alerta {
     text-align: center;
     width: 36%;
     box-shadow: 7px 7px 14px #807c7c,
-      -7px -7px 14px #807c7c;
+        -7px -7px 14px #807c7c;
     z-index: 1200;
     margin-left: 28%;
-  
-  }
-  
-  h3 {
+
+}
+
+h3 {
     width: 100%;
     height: 50px;
     padding: 2%;
@@ -88,10 +88,9 @@
     background-color: red;
     color: #ffffff;
     position: fixed;
-  }
-  
-  #datosIniciales {
-    background-color: #b8bdbd;
+}
+
+#datosIniciales {
     width: 40%;
     height: auto;
     margin-left: 28%;
@@ -101,12 +100,12 @@
     border-radius: 10px;
     text-align: center;
     z-index: 1100;
-  
-  }
-  
-  
-  
-  input[type="text"] {
+
+}
+
+
+
+input[type="text"] {
     width: 80%;
     height: 40px;
     border-radius: 6px;
@@ -114,9 +113,9 @@
     margin: 1%;
     padding-left: 2%;
     font-size: 100%;
-  }
-  
-  input[type="date"] {
+}
+
+input[type="date"] {
     width: 80%;
     height: 40px;
     border-radius: 6px;
@@ -124,10 +123,10 @@
     margin: 1%;
     padding-left: 2%;
     font-size: 100%;
-  }
-  
-  
-  select {
+}
+
+
+select {
     width: 80%;
     height: 40px;
     border-radius: 6px;
@@ -135,68 +134,68 @@
     margin: 1%;
     padding-left: 2%;
     font-size: 100%;
-  }
-  
-  /* principal */
-  .principal {
+}
+
+/* principal */
+.principal {
     width: 100%;
     padding-top: 6%;
     display: grid;
     grid-template-columns: 80% 20%;
-  
-  
-  }
-  
-  /* informacion  */
-  .informacion {
+
+
+}
+
+/* informacion  */
+.informacion {
     background-color: #dee2e2;
     width: 90%;
     margin: 1%;
     padding: 2%;
     border-radius: 10px;
     text-align: center;
-  
-  }
-  
-  .informacion2 {
+
+}
+
+.informacion2 {
     background-color: #ffffff;
     padding: 3%;
     border-radius: 10px;
     margin-top: 3%;
-  
-  }
-  
-  .informacion2 P {
+
+}
+
+.informacion2 P {
     margin: 1%;
     font-size: 150%;
     text-align: left;
-  
-  }
-  
-  /* Boleteria */
-  .principalBoleteria {
+
+}
+
+/* Boleteria */
+#principalBoleteria {
     text-align: center;
     margin: 2%;
     background-color: #dee2e2;
     padding: 1%;
     border-radius: 10px;
-  }
-  
-  .principalBoleteria h2 {
-  
+}
+
+.principalBoleteria h2 {
+
     margin-top: 1%;
     padding: 1%;
     font-size: 200%;
     border-radius: 10px 10px 0 0;
-  }
-  
-  .boleteria {
+}
+
+.boleteria {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     margin-right: 2%;
-  }
-  
-  .boleta {
+}
+
+.boleta {
     width: 80px;
     height: 80px;
     margin: 3%;
@@ -207,76 +206,76 @@
     font-size: 150%;
     display: grid;
     place-items: center;
-  
-  
-  
-  }
-  
-  .estado-pagada {
+
+
+
+}
+
+.estado-pagada {
     background-color: #148014;
-  }
-  
-  .estado-porPagar {
+}
+
+.estado-porPagar {
     background-color: #be1a1a;
-  }
-  
-  .estado-ganador {
+}
+
+.estado-ganador {
     background-color: #e9ad09;
     color: #000000;
     font-size: 200%;
-  }
-  
-  
-  .estado-disponible {
+}
+
+
+.estado-disponible {
     background-color: #0467fc;
-  }
-  
-  /* Datos Comprador */
-  .datosComprador {
+}
+
+/* Datos Comprador */
+.datosComprador {
     margin: 1%;
     margin-top: 6%;
     border-radius: 10px;
     background-color: #b8bdbd;
     margin-left: 30%;
     position: fixed;
-  
-  }
-  
-  .datosComprador p {
+
+}
+
+.datosComprador p {
     border-radius: 5px;
     text-align: center;
     font-size: 150%;
     font-weight: bold;
     margin: 2%;
-  }
-  
-  .datosComprador h2 {
-     text-align: center;
+}
+
+.datosComprador h2 {
+    text-align: center;
     padding: 1%;
     border-radius: 10px 10px 0 0;
-  }
-  
-  .datosComprador input[type="text"] {
+}
+
+.datosComprador input[type="text"] {
     background-color: #dee2e2;
     width: 95%;
-  }
-  
-  .datos {
+}
+
+.datos {
     background-color: #ffffff;
     margin: 4%;
     padding: 2%;
     border-radius: 10px;
-  }
-  
-  .buttonCerrarComprador {
+}
+
+.buttonCerrarComprador {
     background-color: #ffffff;
     margin-top: 2%;
     margin-left: 85%;
-  
-  }
-  
-  /* Acciones */
-  .acciones {
+
+}
+
+/* Acciones */
+.acciones {
     background-color: #dee2e2;
     width: 90%;
     margin: 1%;
@@ -284,18 +283,18 @@
     padding: 2%;
     border-radius: 10px;
     text-align: center;
-  
-  }
-  
-  .acciones2 {
+
+}
+
+.acciones2 {
     background-color: #ffffff;
     padding: 3%;
     border-radius: 10px;
     margin-top: 3%;
-  
-  }
-  
-  .buttonAcciones {
+
+}
+
+.buttonAcciones {
     width: 80%;
     padding: 3%;
     margin: 2%;
@@ -303,10 +302,10 @@
     border: none;
     background-color: #0467fc;
     color: #ffffff;
-  }
-  
-  /*ingresar nuemero loteria*/
-  .numeroLoteria {
+}
+
+/*ingresar nuemero loteria*/
+#numeroLoteria {
     width: 25%;
     background-color: #b8bdbd;
     border-radius: 10px;
@@ -315,9 +314,9 @@
     /* z-index: 1300; */
     margin-left: 35%;
     margin-top: 7%;
-  }
-  
-  .numeroLoteria p {
+}
+
+#numeroLoteria p {
     width: 60%;
     margin-left: 15%;
     padding: 2%;
@@ -325,10 +324,10 @@
     margin-bottom: 2%;
     border-radius: 6PX;
     font-size: 120%;
-    
-  }
-  
-  input[type="number"] {
+
+}
+
+input[type="number"] {
     width: 80%;
     height: 40px;
     border-radius: 6px;
@@ -336,10 +335,10 @@
     margin: 2%;
     padding-left: 2%;
     font-size: 100%;
-  }
-  
-  /*mostrar informacion de la boleta*/
-  .datosBoleta {
+}
+
+/*mostrar informacion de la boleta*/
+#datosBoleta {
     background-color: #b8bdbd;
     border-radius: 10px;
     width: 30%;
@@ -348,78 +347,85 @@
     font-weight: bold;
     margin-left: 30%;
     position: fixed;
-  
-  }
-  
-  .datosBoletaP {
+
+}
+
+#datosBoleta P {
     background-color: #ffffff;
     padding: 2%;
     width: 90%;
-    border-radius: 10px;
-  }
-  
-  
-  /*tabla lista de boletas*/
-  .listaBoletas {
+
+}
+
+
+/*tabla lista de boletas*/
+.listaBoletas {
     background-color: #b8bdbd;
     border-radius: 10px;
     padding-bottom: 2%;
 
-   
-  }
-  
-  .mainTable{
-    width: 90%;
+
+}
+
+.mainTable {
+    width: 80%;
     border-collapse: collapse;
     table-layout: fixed;
 
-  }
-  .mainTable th, .mainTable td{
+}
+
+.mainTable th,
+.mainTable td {
     border: 1px solid #000000;
     padding: 8px;
-    word-wrap: break-word; 
-    
-  }
-  .listaBoletas h2 {
-   text-align: center;
+
+
+}
+
+.listaBoletas h2 {
+    text-align: center;
     padding-bottom: 1%;
-  }  
-    
-  .mainTable th {
+}
+
+.mainTable th {
     padding: 8px;
     text-align: center;
-  }
-  .tableHeader{
+}
+
+.tableHeader {
     background-color: #0467fc;
     color: #ffffff;
-  }
+}
 
-  
-  .mainTable td {
+
+.mainTable td {
     text-align: left;
-  }
-  
-  .mainTable tfoot td {
+}
+
+.mainTable tfoot td {
     font-weight: bold;
-  }
-  
-  
-  
-  /*temas*/
-  .seleccionarTema {
+}
+
+
+
+/*temas*/
+#seleccionarTema {
     width: 40%;
     text-align: center;
     margin-left: 20%;
     margin-top: 7%;
-    background-color: #b8bdbd;
     border-radius: 10px;
     z-index: 1300;
     position: fixed;
-  }
-  
-  /* footer */
-  
-  footer {
+}
+
+.generalClass {
+    background-color: #b8bdbd;
+}
+
+/* footer */
+
+footer {
     width: 100%;
     height: auto;
     text-align: center;
@@ -427,178 +433,201 @@
     color: #ffffff;
     position: absolute;
     bottom: 0;
-  }
-  
-  footer p {
+}
+
+footer p {
     padding: 1%;
     font-size: 120%;
-  }
-  
-  
-  
-  /* Define estilos para diferentes temas */
-  /* Tema One */
-  .themeOne {
+}
+
+
+/* Define estilos para diferentes temas */
+/*Original*/
+.defaultTheme{
+    .mainContainer header {
+        background-color: #5f5d61;
+        color: #ffffff;
+    }
+    
+}
+/* Tema One */
+.themeOne {
     background-color: #b96dec;
-  }
-  
-  .mainContainer.themeOne header {
+}
+
+.mainContainer.themeOne header {
     background-color: #4c007d;
     color: #ffffff;
-  }
-  
-  .mainContainer.themeOne footer {
+}
+
+.mainContainer.themeOne footer {
     background-color: #4c007d;
     color: #ffffff;
-  }
-  
-  .mainContainer.themeOne .buttonAcciones {
+}
+
+.mainContainer.themeOne .buttonAcciones {
     background-color: #a73aaf;
-  }
-  
-  .mainContainer.themeOne .buttonGeneral {
+}
+
+.mainContainer.themeOne .buttonGeneral {
     background-color: #a73aaf;
-  }
-  
-  .mainContainer.themeOne .mainText {
+}
+
+.mainContainer.themeOne .mainText {
     background-color: #a73aaf;
-  }
-  .mainContainer.themeOne .tableHeader{
-    background-color: #871490 ;
-  }
-  
-  /* Tema Two */
-  .themeTwo {
+}
+
+.mainContainer.themeOne .generalClass {
+    background-color: #bfaace;
+}
+
+.mainContainer.themeOne .tableHeader {
+    background-color: #871490;
+}
+
+/* Tema Two */
+.themeTwo {
     background-color: #9fee98;
-  }
-  
-  .mainContainer.themeTwo header {
+}
+
+.mainContainer.themeTwo .generalClass {
+    background-color: #a8cca5;
+}
+
+.mainContainer.themeTwo header {
     background-color: #0c3e11;
     color: #ffffff;
-  }
-  
-  .mainContainer.themeTwo footer {
+}
+
+.mainContainer.themeTwo footer {
     background-color: #0c3e11;
     color: #ffffff;
-  }
-  
-  .mainContainer.themeTwo .buttonAcciones {
+}
+
+.mainContainer.themeTwo .buttonAcciones {
     background-color: #075713;
-  }
-  
-  .mainContainer.themeTwo .buttonGeneral {
+}
+
+.mainContainer.themeTwo .buttonGeneral {
     background-color: #075713;
-  }
-  
-  .mainContainer.themeTwo .mainText {
+}
+
+.mainContainer.themeTwo .mainText {
     background-color: #2b8833;
-  }
-  .mainContainer.themeTwo .tableHeader{
-    background-color:#0c3e11  ;
-  }
-  
-  /* Tema Three */
-  .themeThree {
+}
+
+.mainContainer.themeTwo .tableHeader {
+    background-color: #0c3e11;
+}
+
+/* Tema Three */
+.themeThree {
     background-color: #ffd689;
-  }
-  
-  .mainContainer.themeThree header {
+}
+
+.mainContainer.themeThree .generalClass {
+    background-color: #c9bba0;
+}
+
+
+.mainContainer.themeThree header {
     background-color: #eb8423;
     color: #000000;
-  }
-  
-  .mainContainer.themeThree footer {
+}
+
+.mainContainer.themeThree footer {
     background-color: #eb8423;
     color: #000000;
-  }
-  
-  .mainContainer.themeThree .buttonAcciones {
+}
+
+.mainContainer.themeThree .buttonAcciones {
     background-color: #ffc548;
     color: #000000;
-  }
-  
-  .mainContainer.themeThree .buttonGeneral {
+}
+
+.mainContainer.themeThree .buttonGeneral {
     background-color: #ffc548;
     color: #000000;
-  }
-  
-  .mainContainer.themeThree .mainText {
+}
+
+.mainContainer.themeThree .mainText {
     background-color: #ed8900;
-      color: #000000;
-  }
-  .mainContainer.themeThree .tableHeader{
-    background-color:#c96c00  ;
-  }
-  
-  
-  
-  /*Responsibidad*/
-  @media(max-width:1200px) {
+    color: #000000;
+}
+
+.mainContainer.themeThree .tableHeader {
+    background-color: #c96c00;
+}
+
+
+
+/*Responsibidad*/
+@media(max-width:1200px) {
     .boleta {
-      width: 60px;
-      height: 60px;
+        width: 60px;
+        height: 60px;
     }
-  }
-  
-  @media(max-width:900px) {
+}
+
+@media(max-width:900px) {
     .principal {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 100%;
-  
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+
     }
-  
+
     .acciones {
-      width: 60%;
-      margin-left: 20%;
-  
+        width: 60%;
+        margin-left: 20%;
+
     }
-  
+
     .informacion {
-  
-      width: 60%;
-      margin-left: 20%;
-  
+
+        width: 60%;
+        margin-left: 20%;
+
     }
-  
+
     .principal2 {
-      display: grid;
-      grid-template-columns: 50% 50%;
-  
+        display: grid;
+        grid-template-columns: 50% 50%;
+
     }
-  }
-  
-  @media(max-width:700px) {
-  
+}
+
+@media(max-width:700px) {
+
     .principal2 {
-      display: grid;
-      grid-template-columns: 100%;
-  
+        display: grid;
+        grid-template-columns: 100%;
+
     }
-  
+
     .boleteria {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      margin-right: 2%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-right: 2%;
     }
-  
+
     .numeroLoteria {
-      width: 50%;
-      margin-left: 5%;
+        width: 50%;
+        margin-left: 5%;
     }
-  
+
     #datosIniciales {
-  
-      width: 70%;
-      margin-left: 15%;
+
+        width: 70%;
+        margin-left: 15%;
     }
-  
+
     .seleccionarTema {
-      width: 70%;
+        width: 70%;
     }
-  
+
     .listaBoletas table {
-      width: 90%;
+        width: 90%;
     }
-  
-  }
+
+}
